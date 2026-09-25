@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff8e8" />
+  <meta name="description" content="Spin the wheel and discover your next legendary nickname." />
+  <title>Nickname Roulette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Shrikhand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main>
+    <header>
+      <div class="eyebrow"><span>✦</span> The highly scientific name generator</div>
+      <h1>Nickname<br><em>Roulette</em></h1>
+      <p class="intro">Pick your player. Spin the wheel.<br>Accept your new identity.</p>
+    </header>
+
+    <section class="game-card" aria-label="Nickname wheel game">
+      <div class="player-picker" role="group" aria-label="Choose a player">
+        <button class="player active" data-player="Juman" type="button">
+          <span class="avatar avatar-juman">J</span>
+          <span>Juman</span>
+        </button>
+        <button class="player" data-player="Lara" type="button">
+          <span class="avatar avatar-lara">L</span>
+          <span>Lara</span>
+        </button>
+      </div>
+
+      <div class="wheel-zone">
+        <div class="burst" aria-hidden="true">★</div>
+        <div class="pointer" aria-hidden="true"></div>
+        <div class="wheel-shell">
+          <canvas id="wheel" width="600" height="600" aria-label="Wheel of nicknames"></canvas>
+          <button id="spinButton" type="button" aria-label="Spin the nickname wheel">
+            <span>SPIN</span>
+            <small>✦</small>
+          </button>
+        </div>
+        <div class="doodle doodle-left" aria-hidden="true">↝</div>
+        <div class="doodle doodle-right" aria-hidden="true">⚡</div>
+      </div>
+
+      <div class="result" id="result" aria-live="polite">
+        <span class="result-label">Today's alter ego</span>
+        <strong id="resultName">Tap spin to find out!</strong>
+      </div>
+    </section>
+
+    <footer>Built for laughs, not legal name changes <span>♥</span></footer>
+  </main>
+  <div id="confetti" aria-hidden="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>
