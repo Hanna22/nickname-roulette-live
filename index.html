@@ -32,6 +32,11 @@
         </button>
       </div>
 
+      <div class="game-tools">
+        <label class="chaos-toggle"><input id="chaosMode" type="checkbox" /> <span>CHAOS MODE</span><small>add a dramatic title</small></label>
+        <div class="stats" aria-label="Game stats"><span>🔥 <b id="streak">0</b> streak</span><span>🎲 <b id="spinCount">0</b> spins</span></div>
+      </div>
+
       <div class="wheel-zone">
         <div class="burst" aria-hidden="true">★</div>
         <div class="pointer" aria-hidden="true"></div>
@@ -49,6 +54,7 @@
       <div class="result" id="result" aria-live="polite">
         <span class="result-label">Today's alter ego</span>
         <strong id="resultName">Tap spin to find out!</strong>
+        <button class="copy-button" id="copyButton" type="button" hidden>Copy my new identity</button>
       </div>
     </section>
 

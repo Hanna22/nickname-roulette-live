@@ -11,10 +11,19 @@ const result = document.querySelector("#result");
 const resultName = document.querySelector("#resultName");
 const playerButtons = [...document.querySelectorAll(".player")];
 const confettiBox = document.querySelector("#confetti");
+const chaosMode = document.querySelector("#chaosMode");
+const streakText = document.querySelector("#streak");
+const spinCountText = document.querySelector("#spinCount");
+const copyButton = document.querySelector("#copyButton");
+
+const titles = ["the Magnificent", "Supreme Snack Officer", "Captain of Chaos", "the Unreasonably Iconic", "the Main Character"];
 
 let currentPlayer = "Juman";
 let rotation = 0;
 let spinning = false;
+let streak = 0;
+let spinCount = 0;
+let lastWinner = "";
 
 function drawWheel() {
   const names = players[currentPlayer];
@@ -86,7 +95,15 @@ function spin() {
   canvas.style.transform = `rotate(${rotation}deg)`;
 
   window.setTimeout(() => {
-    resultName.textContent = `${currentPlayer}, you are… ${names[winnerIndex]}!`;
+    const nickname = names[winnerIndex];
+    const title = chaosMode.checked ? ` ${titles[Math.floor(Math.random() * titles.length)]}` : "";
+    lastWinner = `${currentPlayer}, you are… ${nickname}${title}!`;
+    resultName.textContent = lastWinner;
+    streak += 1;
+    spinCount += 1;
+    streakText.textContent = streak;
+    spinCountText.textContent = spinCount;
+    copyButton.hidden = false;
     result.classList.add("pop");
     celebrate();
     spinning = false;
@@ -104,9 +121,18 @@ playerButtons.forEach((button) => {
     canvas.style.transform = "rotate(0deg)";
     result.classList.remove("pop");
     resultName.textContent = `Ready for you, ${currentPlayer}!`;
+    copyButton.hidden = true;
     drawWheel();
   });
 });
 
 spinButton.addEventListener("click", spin);
+copyButton.addEventListener("click", async () => {
+  if (!lastWinner) return;
+  try {
+    await navigator.clipboard.writeText(lastWinner);
+    copyButton.textContent = "Copied! ✦";
+    window.setTimeout(() => { copyButton.textContent = "Copy my new identity"; }, 1400);
+  } catch { copyButton.textContent = "Select to share"; }
+});
 drawWheel();

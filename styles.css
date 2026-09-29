@@ -132,6 +132,13 @@ h1 em {
 .avatar-juman { background: var(--mint); }
 .avatar-lara { background: var(--pink); }
 
+.game-tools { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 430px; margin: 0 auto 10px; }
+.chaos-toggle { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; font-size: .72rem; font-weight: 900; letter-spacing: .06em; }
+.chaos-toggle input { width: 18px; height: 18px; accent-color: var(--orange); }
+.chaos-toggle small { color: #6b716e; font-size: .65rem; font-weight: 700; letter-spacing: 0; text-transform: none; }
+.stats { display: flex; gap: 10px; color: #59645e; font-size: .72rem; font-weight: 800; white-space: nowrap; }
+.stats b { color: var(--ink); }
+
 .wheel-zone { position: relative; display: grid; place-items: center; }
 
 .wheel-shell {
@@ -203,6 +210,8 @@ h1 em {
 
 .result-label { display: block; margin-bottom: 3px; color: #6b716e; font-size: .69rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .result strong { display: block; font-family: "Shrikhand", cursive; font-size: clamp(1.25rem, 4vw, 1.8rem); font-weight: 400; }
+.copy-button { margin-top: 9px; padding: 6px 11px; border: 2px solid var(--ink); border-radius: 999px; background: white; color: var(--ink); font: 800 .7rem "DM Sans", sans-serif; cursor: pointer; }
+.copy-button:hover { background: var(--mint); transform: rotate(-2deg); }
 .result.pop strong { animation: pop .55s cubic-bezier(.2,1.8,.4,1); color: var(--orange); }
 
 footer { margin-top: 26px; text-align: center; color: #6b716e; font-size: .78rem; font-weight: 700; }
@@ -218,6 +227,7 @@ footer span { color: var(--orange); }
   main { padding-top: 32px; }
   .game-card { padding: 20px 12px 24px; border-radius: 24px; box-shadow: 6px 7px 0 var(--ink); }
   .player { min-width: 120px; padding-right: 14px; }
+  .game-tools { align-items: flex-start; flex-direction: column; padding: 0 10px; }
   .burst, .doodle { display: none; }
   .wheel-shell { width: min(390px, 84vw); }
   #spinButton { width: 76px; height: 76px; }
